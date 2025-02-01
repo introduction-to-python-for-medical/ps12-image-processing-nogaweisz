@@ -13,7 +13,6 @@ def load_image(file_path):
         np.array: Image data as a NumPy array, or None if loading fails
     """
     try:
-        # Check if file path is provided
         if not file_path:
             raise ValueError("File path cannot be empty")
             
@@ -48,14 +47,13 @@ def edge_detection(image_array):
     Returns:
         np.array: Edge magnitude array with shape (height, width), or None if input is invalid
     """
-    # Validate input
     if image_array is None:
         print("Error: Input image array is None")
         return None
         
     try:
-        # Convert to grayscale by averaging the color channels
-        grayscale = np.mean(image_array, axis=2)
+        # Convert to grayscale using a luminosity weighted average
+        grayscale = 0.2989 * image_array[:, :, 0] + 0.5870 * image_array[:, :, 1] + 0.1140 * image_array[:, :, 2]
         
         # Define Sobel filters for vertical and horizontal edges
         kernel_y = np.array([
@@ -81,4 +79,5 @@ def edge_detection(image_array):
         
     except Exception as e:
         print(f"Error performing edge detection: {str(e)}")
-        return None
+        return None
+
