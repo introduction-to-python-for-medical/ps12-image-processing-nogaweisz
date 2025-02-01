@@ -9,7 +9,6 @@ from image_utils import load_image, edge_detection
 def main():
     # Step 1: Load the image
     try:
-        # Replace with your image path
         image = load_image("orig_img.jpg")
         print("Image loaded successfully")
         print(f"Image shape: {image.shape}")
