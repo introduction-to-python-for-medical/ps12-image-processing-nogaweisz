@@ -3,12 +3,22 @@ from PIL import Image
 from skimage.filters import median
 from skimage.morphology import ball
 import matplotlib.pyplot as plt
-from image_utils import load_image, edge_detection
+from skimage.feature import canny  # If you want to use Canny for edge detection
+
+def load_image(image_path):
+    try:
+        return plt.imread(image_path)  # Load image as a NumPy array
+    except Exception as e:
+        print(f"Error loading image: {str(e)}")
+        return None
+
+def edge_detection(image):
+    # For demonstration, we'll use the Canny edge detector here
+    return canny(image)
 
 def main():
     image_path = "orig_img.jpg" 
     
-    # Load and process image
     try:
         # Step 1: Load image
         original_image = load_image(image_path)
@@ -36,5 +46,6 @@ def main():
         print(f"Error in processing: {str(e)}")
         return False
 
-if _name_ == "__main__":
-    main()
+if __name__ == "__main__":
+    main()
+
