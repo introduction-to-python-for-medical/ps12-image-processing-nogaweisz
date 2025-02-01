@@ -10,7 +10,7 @@ def main():
     # Step 1: Load the image
     try:
         # Replace with your image path
-        image = load_image("/content/dog_image_ex.jpeg")
+        image = load_image("orig_img.jpg")
         print("Image loaded successfully")
         print(f"Image shape: {image.shape}")
     except Exception as e:
