@@ -63,5 +63,5 @@ def main():
     except Exception as e:
         print(f"Error saving image: {str(e)}")
 
-if _name_ == "_main_":
+if _name_ == "__main__":
     main()
